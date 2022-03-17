@@ -1,10 +1,6 @@
 from django.shortcuts import render
-from . import views
-from .models import Image, Profile, Ratings
+from django.http  import HttpResponse
 
 # Create your views here.
-def home(request):
-    context = {
-        'images':Image.objects.all()
-    }
-    return render(request, ('wowawards/profile.html'), context)
+def welcome(request):
+    return HttpResponse('Welcome to the Moringa Tribune')
