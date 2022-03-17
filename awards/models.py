@@ -75,7 +75,7 @@ class Ratings(models.Model):
     )
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
     project = models.ForeignKey(Image, on_delete=models.CASCADE)
-    design = models.PositiveIntegerField(max_length=2, choices=TEN_REVIEWS, default="0")
-    usability= models.PositiveIntegerField(max_length=2, choices=TEN_REVIEWS, default="0")
-    content = models.PositiveIntegerField(max_length=2, choices= TEN_REVIEWS, default= "0")
+    design = models.PositiveIntegerField( choices=TEN_REVIEWS, default="0")
+    usability= models.PositiveIntegerField( choices=TEN_REVIEWS, default="0")
+    content = models.PositiveIntegerField( choices= TEN_REVIEWS, default= "0")
 

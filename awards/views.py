@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from . import views
+from .models import Image, Profile, Ratings
 
 # Create your views here.
 def home(request):
-
-    return render(request,'home.html', views.home)
+    context = {
+        'images':Image.objects.all()
+    }
+    return render(request, ('wowawards/profile.html'), context)
