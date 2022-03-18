@@ -8,4 +8,4 @@ class ProjectsTestCase(TestCase):
 
     def projectSave(self):
         initialization = self.setUp()
-        self.assertTrue(save > 0)
+        self.assertTrue()
