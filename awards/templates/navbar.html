@@ -13,7 +13,7 @@
                 <div class="navbar-header">
                     <h2><a class="navbar-brand" href="{% url 'welcome' %}">Awards</a></h2>
                 </div>
-    
+                {% if user.is_authenticated %}
                     <div class="navbar-header">
                         <a class="navbar-brand" href="{%url 'welcome'%}">Home</a>
                     </div>
@@ -28,11 +28,11 @@
                     <div class="navbar-header">
                         <a class="navbar-brand" href="accounts/profile"> View Profile </a>
                     </div>
-                
+                    {% else %}
                 <div class="navbar-header">
                     <a class="navbar-brand" class='btn btn-default' href="/accounts/login">Login</a>
                 </div>
-    
+                {%endif%}
                 <!-- Adding a search form  -->
                 <div class="col-sm-4 col-md-4 navbar-right">
     
