@@ -16,7 +16,7 @@ def register(request):
         return redirect('login')
     else:
         form = UserCreationForm()
-    return render(request, 'register.html', locals())
+    return render(request, 'registration/registration_form.html', locals())
 
 @login_required(login_url='/accounts/login')
 def welcome(request):
