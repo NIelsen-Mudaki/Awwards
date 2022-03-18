@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
 from . import views
-from .models import Image,Profile
+from .models import Image,Profile,Projects
 
 # Create your views here.
 def welcome(request):
-    
-    return render(request,'index.html')
+    current_user = request.user
+    projects = Projects.objects.all()
+    profile = Profile.objects.all()
+    image = Image.objects.all()
+    return render(request,'index.html', {'projects':projects,'profile':profile,'current_user':current_user} )
 
 def search_results(request):
     if "image" in request.GET and request.GET["image"]:
