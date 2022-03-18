@@ -49,9 +49,9 @@ def profile(request):
             return redirect('profile')
     else:
         form = ProfileForm()
-        my_projects = Projects.objects.filter(owner=current_user)
-        my_profile = Profile.objects.get(user_id=current_user)
-    return render(request, 'profile.html', locals())
+        projects = Projects.objects.filter(owner=current_user)
+        profile = Profile.objects.get(user_id=current_user)
+    return render(request, 'profile.html',{'profile':profile,'projects':projects}, locals())
 
 
 
