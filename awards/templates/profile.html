@@ -22,41 +22,13 @@
         <div class="col-md-8 col-xs-8">
             <div class="row">
                 <div class="col-md-12">
-                {%for profile in profile%}
-                    <img class="image-responsive" src={{profile.profile_pic.url}} style="width: 300px; height: 300px; border-radius: 50%; margin-top: 100px;margin-left: 100px ">
             
-                    <div class="well" style="float: right; margin-top: 170px; margin-right: 300px">
-                        <div class="">
-                        <h5 style="float: left; margin-left: 20px; font-size: 30px; font-weight: bold; margin-top: -1px">
-                            {{profile.username}}</h5>
-                        <i class="fa fa-gear" style="font-size:24px; float: right;  margin-left: 30px"></i>
-                        </div>
+                    <div class="card text-center">
+                        <h3><span style="color: navy;">Username:</span> {{profile.profile_photo}}</h3>
+                        <br>
+                        <h3><span style="color: navy;">Email:</span> {{profile.bio}}</h3>
                     </div>
-            
-                    <hr>
-            
-                    <div class="profile">
-            
-                        <div>
-                            <h4 style="float: left; margin-left: -70px">{{image_id.followers}} followers : <strong>500</h4></stong></h4>
-                        </div>
-                        <div>
-                            <h4 style="float: right;">
-                                {{image_id.following }} following : <strong>500</h4></stong>
-                            </h4>
-                        </div>
-            
-                    <button style="margin-left: 130px; background-color:#1E88E5; width: 70px; margin-top: 10px">Follow</button>
-                    </div>
-            
-                    <img src="{{profile.profile.url}}" class="img-responsive" alt="">
-                    <h3>{{image_id.username}}{{image_id.image_caption}}</h3>
-            
-                    {%endfor%}
-                    <div class="col-md-6">
-                        <h1>{{image_id.username}}</h1>
-                        <a href="{{image_id.url}}" class="profile-link">{{image_id.url}}</a>
-                    </div>
+
                     <!--<img src="https://cdn.wallpapersafari.com/99/32/eYL0Vw.jpg" height="150vh" alt="profile_pic" class="rounded-image">
 
                         <h1><span style="color: navy;">Username:</span> {{user.username}}</h1>
@@ -67,9 +39,7 @@
             {% endblock %}
         </div>
         </div>
-        <div class="col-md-2 col-xs-2">
-
-        </div>
+        <div class="col-md-2 col-xs-2"></div>
 </div>
 </div>
 </body>

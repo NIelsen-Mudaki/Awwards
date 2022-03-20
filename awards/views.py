@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse, Http404
-from . import views
 from .forms import *
 from .models import Image,Profile,Projects
 from django.contrib.auth.views import logout
@@ -24,7 +23,7 @@ def welcome(request):
     projects = Projects.objects.all()
     profile = Profile.objects.all()
     image = Image.objects.all()
-    return render(request,'index.html', {'projects':projects,'profile':profile,'current_user':current_user} )
+    return render(request,'index.html', {'projects':projects,'profile':profile,'image':image,'current_user':current_user} )
 
 @login_required(login_url='/accounts/login')
 def search_results(request):
@@ -51,9 +50,22 @@ def profile(request):
         form = ProfileForm()
         projects = Projects.objects.filter(owner=current_user)
         profile = Profile.objects.get(user_id=current_user)
-    return render(request, 'profile.html',{'profile':profile,'projects':projects}, locals())
+    return render(request, 'profile.html',{'profile':profile,'projects':projects,'current_user':current_user}, locals())
 
 
+@login_required(login_url='/accounts/login')
+def post_form(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = UploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.uploaded_by = current_user
+            image.save()
+            return redirect('home')
+    else:
+        form = UploadForm()
+    return render(request, 'post.html', {'form': form})
 
 def login(request):
     return render(request, 'registration/login.html')
