@@ -62,7 +62,7 @@ def post_form(request):
             image = form.save(commit=False)
             image.uploaded_by = current_user
             image.save()
-            return redirect('home')
+            return redirect('/')
     else:
         form = UploadForm()
     return render(request, 'post.html', {'form': form})
